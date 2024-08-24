@@ -84,7 +84,17 @@ def ip_timestamps(ip, utmp_entries):
 
 
 def working_hrs(start_time, end_time, utmp_entries):
-    
+    """
+    Function takes user defined working hours and searches for any logon events that
+    occur outside of these working hours. Function will return the entire struct entry
+    for these potentially anomolous login events.
+
+    :start_time: the start of the working day 
+    :end_time: the end of the working day
+    :utmp_entries: the list of utmp entries to iterate over
+
+    :return: None
+    """
     # going to capture the susp entire entry
     suspect_logins = []
     for record_entry in utmp_entries:
